@@ -1,0 +1,90 @@
+.bg-primary-admin {
+    background-color: var(--primary-color);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    display: block;
+  }
+
+  .modal-header{
+    background-color: var(--primary-color);
+  }
+
+  .modal-body{
+    background-color: var(--secondary-color);
+  }
+  
+  .modal-footer{
+    background-color: var(--secondary-color);
+  }
+
+  .btn-save{
+    background-color: var(--primary-button);
+  }
+
+  .btn-save:hover{
+    background-color: var(--font-color-1);
+  }
+
+  .btn-load-product{
+    background-color: var(--primary-button);
+  }
+
+  .btn-load-product:hover{
+    background-color: var(--font-color-1);
+  }
+
+  th{
+    width: 15%;
+    border: 1px solid #ddd;
+    text-align: center;
+    
+  }
+
+  td {
+    width: 15%;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+
+  td img {
+    max-width: 50%;
+    height: auto;
+  }
+
+
+  .btn-load{
+    border: 1px solid var(--primary-button);
+    color: var(--font-color-1);
+  }
+
+  .btn-load-delete{
+    border: 1px solid var(--primary-button);
+    color: var(--font-color-1);
+  }
+
+  .btn-load-delete:hover{
+    background-color: red;
+    color: var(--font-color-2);
+  }
+
+  .btn-load:hover{
+    background: var(--primary-button);
+    color: var(--text-light-color-nav);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    border: 2px solid var(--primary-color);
+    padding: 8px;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="e-commerse de perfumeria">
+    <meta name="keywords" content="Perfumes, descripcion de cada uno, precios">
+    <meta name="author" content="Grupo 2">
+    <!-- Include Bootstrap CSS  -->
+  <link rel="stylesheet" href="../../styles/bootstrap.min.css">
+  <!-- Include style file-->
+  <link rel="stylesheet" href="../../styles/style.css">
+  <link rel="stylesheet" href="../../styles.css">
+
+  <!-- Include NavBar & footer style file -->
+  <link rel="stylesheet" href="../../styles/navbar&footer.css"/>
+  
+  <!-- Include icons -->
+  <script
+      src="https://kit.fontawesome.com/100ebb3b87.js"
+      crossorigin="anonymous"
+    ></script>
+    <title> Error 404</title>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg z-2">
+      <div class="container-fluid">
+        <div class="d-none d-lg-block">
+          <a href="/index.html">
+            <img class="logo-lg-h" src="/src/img/navbar-footer/image-removebg-preview_(6).png" alt="logo-rolling perfumes" />
+          </a>
+        </div>
+        <div class="d-sm-block d-lg-none">
+          <a href="./index.html"><img class="logo-sm-h" src="/src/img/navbar-footer/image-removebg-preview.png" alt="logo-rolling perfumes" /></a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-lg-flex flex-lg-row justify-content-lg-between" id="navbarNav">
+          <ul class="navbar-nav ms-lg-4 my-3 my-lg-0 ">
+            <li class="nav-item">
+              <a class="nav-link active nav-link-edit rounded mx-1 text-center" aria-current="page" href="/index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-edit rounded mx-1 text-center" href="/src/pages/AboutUs.html">Acerca de Nosotros</a>
+            </li>
+            <!-- Esto se va a ver solo cuando el usuario se logee o el administrador -->
+            <li class="nav-item d-none" id="adminLi" >
+              <a class="nav-link nav-link-edit  rounded mx-1 text-center" href="/src/pages/adminPage.html">Administración</a>
+            </li>
+              <li class="nav-item d-none">
+              <a class="nav-link nav-link-edit rounded mx-1 text-center" href="#">Lista de deseos</a>
+            </li>  
+          </ul>
+          
+          <div class="nav-item d-flex justify-content-lg-between">
+            <a class="nav-link nav-link-edit  btn rounded-2 p-2 m-1" href="#"  data-bs-toggle="modal" data-bs-target="#exampleModal">Ingresar</a> 
+            <a class="nav-link btn nav-link-edit rounded-2 m-1 p-2 text-center" id="register" href="./registerPage.html">Registrarse</a>
+              <a class="nav-link d-none nav-link-edit btnrounded-2 m-1 p-2 text-center" onclick="LogOut()" id="cerrar" href="#">Cerrar Sesion</a>
+          </div>
+            </div>  
+        </div>
+    </nav>
+  </header>
+    <main class="pb-5 mb-5">
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Iniciar Sesion</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="formLogin">
+                <div class="my-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input id="email" type="email"class="form-control" autocomplete="email" placeholder="Ingrese su email" minlength="1" maxlength="50" required >
+                </div>
+                <div class="my-3">
+                  <label for="password" class="form-label">Contraseña</label>
+                  <input id="password" autocomplete="current-password" type="password"class="form-control" placeholder="Ingrese su contraseña" minlength="8" maxlength="50" required >
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                  <button type="submit" class="btn btn-success">Ingresar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section id="titulo">
+        <div class="container background-image mt-5 rounded">
+          <h1 class="pt-5 text-center text-light ">Fragancia no encontrada.</h1> 
+          <h1 class="text-center text-light"> Error 404</h1>
+        </div>      
+      </section>
+        <div class="container text-center pt-5 my-5">
+          <a href="/index.html" class="btn custom-btn-secondary">Volver al Inicio</a>
+        </div>
+    </main>
+    <footer class="container-fluid py-2">
+      <section class="container">
+        <div class="row my-1">
+          <div class="col-sm-12 col-md-4  text-center">
+            <div class="d-none d-lg-block ">
+              <img src="../img/navbar-footer/image-removebg-preview.png" class="img-fluid logo-lg-h" alt="logo Rolling perfumes" />
+            </div>
+            <div class=" d-sm-block d-lg-none text-center ">
+              <img src="../img/navbar-footer/image-removebg-preview_(6).png" class="img-fluid logo-sm-footer" alt="logo Rolling perfumes" />
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-4 text-center p-4">
+                <p ><i class="fa-solid fa-location-dot fa-lg" ></i> General Paz 576</p>
+                <p>Piso 9 - Oficina 2</p>
+                 <p> San Miguel de Tucuman - Argentina </p>
+            </div>
+            <div
+                class=" col-sm-12 col-md-4 py-3 my-4 d-none d-lg-block ">
+                <a href="./404NotFound.html" class="text-white facebook  m-3 ">
+                  <i class="fa-brands fa-square-facebook fa-2xl "></i
+                ></a>
+                <a href="./404NotFound.html" class="text-white instagram m-2  "
+                  ><i class="fa-brands fa-instagram fa-2xl "></i
+                ></a>
+                <a href="./404NotFound.html" class="text-white whatsapp m-3"><i class="fa-brands fa-whatsapp fa-2xl"></i></a>
+              </div>
+              <div
+                class=" col-sm-12 col-md-4 py-3 my-4  d-sm-block d-lg-none text-center">
+                <a href="./404NotFound.html" class="text-white facebook  m-3 ">
+                  <i class="fa-brands fa-square-facebook fa-xl "></i
+                ></a>
+                <a href="./404NotFound.html" class="text-white instagram m-2  "
+                  ><i class="fa-brands fa-instagram fa-xl "></i
+                ></a>
+                <a href="./404NotFound.html" class="text-white whatsapp m-3"><i class="fa-brands fa-whatsapp fa-xl"></i></a>
+              </div>
+          <div class="w-100   text-center">
+            <h4>&copy; RollingPerfumes</h4>
+          </div>
+          </section>
+    </footer>
+    <script src="../../js/bootstrap.min.js"></script>
+</body>
+</html>

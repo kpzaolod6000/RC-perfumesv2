@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="e-commerse de perfumeria">
+  <meta name="keywords" content="Perfumes, descripcion de cada uno, precios">
+  <meta name="author" content="Grupo 2">
+  <!-- Include Bootstrap CSS  -->
+  <link rel="stylesheet" href="./../../styles/bootstrap.min.css">
+  <!-- Include Admin style file -->
+  <link rel="stylesheet" href="./../../styles/adminPage.css">
+  <!-- Include style file-->
+  <link rel="stylesheet" href="./../../styles.css">
+  <!-- Include NavBar & footer style file -->
+  <link rel="stylesheet" href="./../../styles/navbar&footer.css"/>
+  <!-- swal alert -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+  <!-- Toast -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Administracion</title>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg z-2">
+      <div class="container-fluid">
+        <div class="d-none d-lg-block">
+          <a href="./index.html">
+            <img class="logo-lg-h" src="../img/navbar-footer/image-removebg-preview_(6).png" alt="logo-rolling perfumes" />
+          </a>
+        </div>
+        <div class="d-sm-block d-lg-none">
+          <a href="./index.html"><img class="logo-sm-h" src="./src/img/navbar-footer/image-removebg-preview.png" alt="logo-rolling perfumes" /></a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-lg-flex flex-lg-row justify-content-lg-between" id="navbarNav">
+          <ul class="navbar-nav ms-lg-4 my-3 my-lg-0 ">
+            <li class="nav-item">
+              <a class="nav-link active nav-link-edit rounded mx-1 text-center" aria-current="page" href="../../index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-edit rounded mx-1 text-center" href="../../src/pages/AboutUs.html">Acerca de Nosotros</a>
+            </li>
+            <!-- Esto se va a ver solo cuando el usuario se logee o el administrador -->
+            <li class="nav-item d-none" id="adminLi" >
+              <a class="nav-link nav-link-edit  rounded mx-1 text-center" href="adminPage.html">Administración</a>
+            </li>
+            <li class="nav-item d-none" id="lista">
+              <a class="nav-link  nav-link-edit rounded mx-1 text-center" href="WishesList.html">Lista de deseos</a>
+            </li>  
+          </ul>
+          
+          <div class="nav-item d-flex justify-content-lg-between">
+            <a class="nav-link nav-link-edit   btn rounded-2 p-2 m-1" href="#"  data-bs-toggle="modal" data-bs-target="#exampleModal" id="iniciar" >Ingresar</a> 
+            <a class="nav-link btn nav-link-edit rounded-2 m-1 p-2 text-center" id="register" href="./src/pages/registerPage.html"  >Registrarse</a>
+              <a class="nav-link d-none nav-link-edit btnrounded-2 m-1 p-2 text-center" onclick="LogOut()" id="cerrar" href="#">Cerrar Sesion</a>
+          </div>
+            </div>  
+        </div>
+    </nav>
+  </header>
+  <main class="d-flex justify-content-center pb-5">
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Iniciar Sesion</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="formLogin">
+              <div class="my-3">
+                <label for="email" class="form-label">Email</label>
+                <input id="email" type="email"class="form-control" autocomplete="email" placeholder="Ingrese su email" minlength="1" maxlength="50" required >
+              </div>
+              <div class="my-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input id="password" autocomplete="current-password" type="password"class="form-control" placeholder="Ingrese su contraseña" minlength="8" maxlength="50" required >
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-success">Ingresar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="container-fluid m-2">
+        <h1 class="text-center p-4 bg-primary-admin "><strong>Panel de Administración</strong></h1>
+        <div class="table-responsive d-md-flex justify-content-center">
+            <table class="table my-5 " style="table-layout: fixed;">
+                <thead > 
+                  <tr>
+                    <th scope="col"  style="height: 50px; width: 100px;">ID</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Opciones</th>
+                  </tr>
+                </thead>
+                <tbody id="table-body">
+                </tbody>
+              </table>
+        </div>
+        <div class="container admin-buttons d-flex justify-content-center justify-content-md-end p-0 mt-4 mt-md-0">
+            <button id="btn-show-modal" type="button" class="btn btn-primary btn-lg m-0 btn-load-product" data-bs-toggle="modal" data-bs-target="#create-product-modal">
+                Cargar Producto
+            </button>
+        </div>
+    </section>  
+    <!-- Modal -->
+    <div class="modal fade" id="create-product-modal" tabindex="-1" aria-labelledby="create-product-modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    
+                    <h1 class="modal-title fs-5" id="create-product-modalLabel">Agregar Producto</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="productForm">
+                        <div class="form-group text-center">
+                            <label for="imageInput">Seleccionar Imagen</label>
+                            <div class="d-flex flex-column align-items-center">
+                              <img class="img-fluid my-2" id="img-preview">
+                              <label for="product-image" class="btn btn-load rounded-2 p-2 m-1">
+                                Cargar Imagen
+                                <input type="file" class="d-none" id="product-image" accept="image/*" required>
+                              </label>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <label for="product-name" class="col-form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="product-name" placeholder="Ej: Ego" minlength="5" maxlength="25" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="product-description" class="col-form-label">Description:</label>
+                            <textarea type="text" class="form-control" id="product-description" placeholder="Ej: Ego es el perfume mas ..." minlength="10" maxlength="50" required></textarea>
+                        </div>
+                        <div class="mb-2">
+                            <label for="product-price" class="col-form-label">Precio:</label>
+                            <input type="number" class="form-control" id="product-price" placeholder="Ej: 39.99" minlength="1" maxlength="50" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="product-stock" class="col-form-label">Stock:</label>
+                            <input type="number" class="form-control" id="product-stock" placeholder="Ej: 4" minlength="1" maxlength="5" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="product-stock" class="col-form-label">Categoria:</label>
+                            <select class="form-control" id="product-category" required>
+                                <option value="Dulce">Dulce</option>
+                                <option value="Floral">Floral</option>
+                                <option value="Citrico">Citrico</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="btn-create-exit" type="button" class="btn btn-secondary" data-bs-dismiss="modal" hidden>Cerrar</button>
+                    <button id="save-product" type="button" class="btn btn-primary btn-save">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </main>
+  <footer class="container-fluid py-2 mt-5">
+    <section class="container">
+        <div class="row my-1">
+          <div class="col-sm-12 col-md-4  text-center">
+            <div class="d-none d-lg-block ">
+              <img src="./../../src/img/navbar-footer/image-removebg-preview.png" class="img-fluid logo-lg-h" alt="logo Rolling perfumes" />
+            </div>
+            <div class=" d-sm-block d-lg-none text-center ">
+              <img src="./../../src/img/navbar-footer/image-removebg-preview_(6).png" class="img-fluid logo-sm-footer" alt="logo Rolling perfumes" />
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-4 text-center p-4">
+                <p><i class="fa-solid fa-location-dot fa-lg"></i> General Paz 576</p>
+                <p>Piso 9 - Oficina 2</p> 
+                 <p>San Miguel de Tucuman - Agentina </p>
+            </div>
+            <div class=" col-sm-12 col-md-4 py-3 my-4 d-none d-lg-block ">
+            <a href="./src/pages/404NotFound.html" class="text-white facebook  m-3 ">
+              <i class="fa-brands fa-square-facebook fa-2xl "></i
+            ></a>
+            <a href="./src/pages/404NotFound.html" class="text-white instagram m-2  "
+              ><i class="fa-brands fa-instagram fa-2xl "></i
+            ></a>
+            <a href="./src/pages/404NotFound.html" class="text-white whatsapp m-3"><i class="fa-brands fa-whatsapp fa-2xl"></i></a>
+          </div>        
+          <div class=" col-sm-12 col-md-4 py-3 my-4  d-sm-block d-lg-none text-center">
+                <a href="./404NotFound.html" class="text-white facebook  m-3 ">
+                  <i class="fa-brands fa-square-facebook fa-xl "></i
+                ></a>
+                <a href="./404NotFound.html" class="text-white instagram m-2  "
+                  ><i class="fa-brands fa-instagram fa-xl "></i
+                ></a>
+                <a href="./404NotFound.html" class="text-white whatsapp m-3"><i class="fa-brands fa-whatsapp fa-xl"></i></a>
+              </div>
+          <div class="w-100   text-center">
+            <h4>&copy; RollingPerfumes</h4>
+          </div>
+          </section>
+  </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" 
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
+
+<script src="./../../js/bootstrap.min.js"></script>
+<script src="../../js/page_admin/admin.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="./../../js/bootstrap.min.js"></script>
+<script src="./js/page-main/getProductsList.js"></script>
+<script src="./../../js/page-main/login.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Include icons -->
+<script
+src="https://kit.fontawesome.com/100ebb3b87.js"
+crossorigin="anonymous"
+></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<!-- Toast -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</html>

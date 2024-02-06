@@ -1,0 +1,28 @@
+:root {
+    --primary-color: #8FC0A9;
+    --primary-color-dark: #4A7C59;
+    --primary-color-light: #FAF3DD;
+    --secondary-color: #68B0AB;
+    --background-color-gray: #C8D5B9;
+    --background-color-light: #f7f7f7;
+    --background-color-dark: #202529;
+    --text-light-color: #fafbf3;
+    --text-dark-color: #000000;
+    --start-color: #f7a41b;
+    --card-background-color: #f5f5f5;
+    --pusblisher-background-color: #cbbfb5;
+    --comment-user-text-color: #36648B;
+  } 
+
+h1{
+    text-align: center;
+    background-color: var(--secondary-color);
+    padding: 3dvh;    
+}
+
+.list{
+    background-color: var(--background-color-light) ;
+    border-radius: 50px;
+    text-align: center;
+    align-items: center;
+}
